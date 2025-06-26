@@ -1,237 +1,244 @@
-<!DOCTYPE html><html lang="en"></html><head><meta charset="UTF-8"><meta http-equiv="Content-Language" content="en-us">
-<title> Hz Bahkali </title>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
-<link rel="shortcut icon" type="image/png" href="https://b.top4top.io/p_2376u2ebm1.png">
-<style type="text/css">
-body{	
-  justify-content: center; 
-  align-items: center;
-  background: url(https://k.top4top.io/p_3213otvu42.jpg);
-  background-repeat: repeat;
-  background-size: 100%;
-  justify-content: center;
-  color: rgb(255, 255, 255);
-  font-family:  "Monaco",Inconsolata;}
 
-.wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;}
-.terminal {
-  width: 90%;
-  max-width: 900px;
-  height: 50%;
-  min-height: 400px;
-  background: #20202088;
-  border-radius: 7px 7px;
-  transition: box-shadow 0.3s linear;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);}
-.terminal:hover {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);}
-.terminal:active {
-  cursor: move;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);}
-.terminal__head {
-  width: 100%;
-  height: 25px;
-  background: #000 linear-gradient(to bottom, #ebebeb, #d5d5d5);
-  border-radius: 7px 7px 0 0;
-  display: flex;
-  justify-content: start;
-  align-items: center;}
-.terminal__text {
-  padding: 18px 2%;
-  line-height: 1.5;}
-.terminal__text a {
-  color: #52a563;
-  text-decoration: none;}
-.terminal__text__span:before {
-  content: "root ~$ ";
-  color: #e7dedeec;}
-.head__circle {
-  position: relative;
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin-left: 4px;
-  font-size: 0;
-  font-weight: 900;
-  border-radius: 10px;}
-.head__circle--close {
-  background: #ff5c5c;
-  border: 1px solid #e33e41;
-  margin-left: 7px;}
-.head__circle--close:hover:before {
-  top: -14px;
-  left: 0.4px;
-  font-size: 22px;
-  color: #820005;
-  content: "⨯";
-  position: absolute;}
-.head__circle--turn {
-  background: #ffbd4c;
-  border: 1px solid #e09e3e;}
-.head__circle--turn:hover:before {
-  content: "";
-  top: 6px;
-  left: 3px;
-  width: 10px;
-  height: 4px;
-  background: #9a5518;
-  position: absolute;}
-.head__circle--expand {
-  background: #00ca56;
-  border: 1px solid #14ae46;}
-.head__circle--expand:hover:before {
-  content: "";
-  top: 6px;
-  left: 3px;
-  width: 10px;
-  height: 4px;
-  background: #006519;
-  position: absolute;}
-.head__circle--expand:hover:after {
-  content: "";
-  top: 1px;
-  left: 4px;
-  width: 2px;
-  height: 8px;
-  background: #006519;
-  position: absolute;}
-  
-/*Buttons*/
-.menu__container {
-max-width: 800px;
-height: 200px;
-margin-left: auto;
-margin-right: auto;
-margin-top: 50px;
-margin-bottom: 60px;
-border-radius: 15px;
-box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
-transform: perspective(1000px) rotateX(-45deg) rotateY(0deg) rotateZ(0deg);
-transform-origin: center center 0px;
-transition: all 0.4s ease-out;}
-.menu__container .menu {
-display: flex;
-justify-content: space-around;
-align-items: center;
-max-width: 100%;
-height: 100%;}
-.menu__container .menu a {
-text-decoration: none;
-color: #fff;
-font-size: 40px;
-transition: all 0.1s linear;}
-.menu__container--2 {
-background: linear-gradient(20deg, #20202088 160%, #8ec5fcb7 100%);
-transform: perspective(10000px) rotateX(5deg) rotateY(30deg) rotateZ(0deg);}
-.menu__container--2:hover {
-transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Snap Hz</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --card-bg: #f0f0f0;
+    }
 
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --card-bg: #1e1e1e;
+    }
 
-/*Footer*/
-footer {background-color: #222;color: #fff;font-size: 14px;bottom: 0;position: fixed;left: 0;right: 0;text-align: center;z-index: 999;}
-footer p {margin: 20px 0;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida  Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
-footer .fa-heart{color: red;}
-footer a {color: #3c97bf;text-decoration: none;margin-right:10px;}
-</style></head>
-<body onload="typewriter();">
-<br><br><br><br>
-    <div class="wrapper">
-        <div class="terminal">
-          <div class="terminal__head">
-            <div class="head__circle head__circle--close"> </div>
-            <div class="head__circle head__circle--turn"> </div>
-            <div class="head__circle head__circle--expand"></div>
-          </div>
-          <div class="terminal__text" id="typedtext"></div>
-        </div>
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Tahoma', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .app-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .app-card img.logo {
+      width: 100px;
+      border-radius: 20px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .app-card h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .screenshots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .screenshots img {
+      width: 48%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .btns {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .install-btn, .buy-btn {
+      display: block;
+      padding: 15px;
+      text-align: center;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .install-btn {
+      background-color: #007aff;
+      color: white;
+    }
+
+    .install-btn:hover {
+      background-color: #005fcc;
+    }
+
+    .buy-btn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .buy-btn:hover {
+      background-color: #1e7e34;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #ffcc00;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .payment-info {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      text-align: center;
+      line-height: 2;
+      border: 1px dashed #999;
+    }
+
+    .copy-btn {
+      padding: 8px 14px;
+      background-color: #666;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      padding: 15px;
+      background: var(--card-bg);
+      border-radius: 10px;
+    }
+
+    footer a {
+      color: #007aff;
+      margin: 0 5px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .screenshots img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="app-card">
+      <img src="https://i.top4top.io/p_3464udj4l1.jpg" alt="شعار التطبيق" class="logo" />
+      <h1>Snap Hz</h1>
+      <p class="description">
+        سناب كروم هو نسخة معدلة من تطبيق سناب شات توفر ميزات إضافية وإمكانية تخصيص التطبيق، ويوفر ميزات مثل حفظ الصور ومقاطع الفيديو من القصص الخاصة والعامة دون علم المرسل، ومشاهدة القصص في وضع التخفي، وتغيير الموقع، والعديد من الميزات الأخرى. 
+أهم مميزات سناب كروم:
+حفظ القصص والرسائل الخاصة:
+يمكنك حفظ الصور ومقاطع الفيديو من القصص العامة والخاصة، وكذلك حفظ الرسائل الخاصة دون أن يعلم المرسل.
+مشاهدة القصص في وضع التخفي:
+يمكنك مشاهدة القصص دون أن يظهر اسمك للمرسل، مما يعني أنه لن يعرف أنك قمت بمشاهدة قصته.
+تغيير الموقع:
+يمكنك تغيير موقعك الجغرافي في سناب شات لاستخدامه في الفلاتر أو لمشاركة موقعك في أي مكان تريده.
+تجاوز حظر IP:
+في حال تم حظر جهازك من قبل سناب شات، يمكنك استخدام سناب كروم لتجاوز هذا الحظر واستخدام التطبيق بشكل طبيعي.
+رفع الصور ومقاطع الفيديو من المعرض:
+يمكنك رفع الصور ومقاطع الفيديو مباشرة من معرض هاتفك إلى سناب شات.
+إخفاء قراءة الرسائل:
+يمكنك قراءة الرسائل الخاصة دون أن يظهر للمرسل أنك قمت بقراءتها.
+إخفاء لقطة الشاشة:
+يمكنك التقاط لقطة شاشة للقصص والرسائل الخاصة دون أن يعلم المرسل.
+إضافة خطوط مخصصة:
+يمكنك تغيير خط الكتابة في سناب شات وإضافة خطوط جديدة.
+      </p>
+
+      <div class="screenshots">
+        <img src="https://via.placeholder.com/400x250?text=صورة+1" alt="لقطة شاشة 1" />
+        <img src="https://via.placeholder.com/400x250?text=صورة+2" alt="لقطة شاشة 2" />
+      </div>
+
+      <div class="btns">
+        <a href="https://example.com/app.ipa" class="install-btn" target="_blank">تثبيت التطبيق</a>
+        <button class="buy-btn" onclick="togglePayment()">شراء الكود</button>
+      </div>
+
+      <div class="payment-info" id="paymentBox">
+        <strong>بيانات التحويل البنكي:</strong><br>
+        <b>صابر بهكلي</b><br><br>
+        <b>بنك الخليج الدولي:</b><br>
+        <span id="acc1">SA0290000000029900774761</span>
+        <button class="copy-btn" onclick="copyText('acc1')">نسخ</button><br><br>
+        <b>بنك الراجحي:</b><br>
+        <span id="acc2">SA4280000157608016004963</span>
+        <button class="copy-btn" onclick="copyText('acc2')">نسخ</button><br><br>
+        <a href="https://wa.me/966583647497" target="_blank" style="color:#007aff; font-weight:bold;">تواصل واتساب</a>
+      </div>
     </div>
-<script>
-var aText = new Array(
-  "<span class='terminal__text__span'>bash Hi im Hibaldz.sh</span>",
-  "<span class='terminal__text__span'>Welcome I Hz Store</span>", 
-  "<span class='terminal__text__span'>I love to offer apps for free.</span>",
-  "<span class='terminal__text__span'>Developer App Ios And Android</span>",
-  "<span class='terminal__text__span'>Developer and Hacker</span>",
-  "<span class='terminal__text__span'>exit()</span>");
-  
-var iSpeed = 60; 
-var iIndex = 0; 
-var iArrLength = aText[0].length; 
-var iScrollAt = 40; 
-var iTextPos = 0; 
-var sContents = ''; 
-var iRow; 
-function typewriter()
-{
- sContents =  ' ';
- iRow = Math.max(0, iIndex-iScrollAt);
- var destination = document.getElementById("typedtext");
- while ( iRow < iIndex ) {
-  sContents += aText[iRow++] + '<br />';}
- destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
- if ( iTextPos++ == iArrLength ) {
-  iTextPos = 0;
-  iIndex++;
-  if ( iIndex != aText.length ) {
-   iArrLength = aText[iIndex].length;
-   setTimeout("typewriter()", 30);}
- } else {
-  setTimeout("typewriter()", iSpeed);}}
-$(function() {
-	$( ".terminal" ).draggable();});
-</script>
 
-	
-<div class="menu__container menu__container--2">
-<div class="menu">
-<a href="https://hzhack.github.io/tools/"
-<i class="fab fa-tool fa-5x"></i>
- JailBreak Tools
-</a></div></div>
-	
-<div class="menu__container menu__container--2">
-<div class="menu">
-<a href="https://hzhack.github.io/ios/"
-<i class="fab fa-apple fa-5x"></i>
- Ios Store
-</a></div></div>
+    <footer>
+     Hz Bahkali جميع الحقوق محفوظة 2025 © <br>
+      تابعني على:
+      <a href="https://snapchat.com" target="_blank">سناب</a> |
+      <a href="https://instagram.com" target="_blank">انستقرام</a> |
+      <a href="https://t.me" target="_blank">تيليجرام</a>
+    </footer>
+  </div>
 
-<div class="menu__container menu__container--2">
-<div class="menu">
-<a href="https://hzhack.github.io/Android/"
-<i class="fab fa-android fa-5x"></i>
- Android Store
-</a></div></div>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-<div class="menu__container menu__container--2">
-<div class="menu">
-<a href="https://hzhack.github.io/jailbreak/"
-<i class="fab fa-linux fa-5x"></i>
- jailbreak Source
-</a></div></div>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      const btn = document.querySelector('.theme-toggle');
+      btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    }
 
-<div class="menu__container menu__container--2">
-<div class="menu">
-<a href="https://hzhack.github.io/icloud/"
-<i class="fab fa-iphone fa-5x"></i>
- Unlook Icloud
-</a></div></div>
+    function togglePayment() {
+      const box = document.getElementById('paymentBox');
+      box.style.display = box.style.display === 'block' ? 'none' : 'block';
+    }
 
-<footer><p>Created with 
-<i class="fa fa-heart"></i> by
-<a target="_blank" href="https://www.snapchat.com/add/sww_p">Hz : </a>
-<a target="_blank"  href="https://t.me/sww_q"><i class="fab fa-telegram fa-2x"></i></a>
-<a target="_blank"  href="https://www.instagram.com/sww_p/"><i class="fab fa-instagram fa-2x"></i></a>
-<a target="_blank" href="https://twitter.com/sww_p"><i class="fab fa-twitter fa-2x"></i></a>
-</p></footer>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text);
+      alert("تم نسخ رقم الحساب");
+    }
+  </script>
 </body>
 </html>
-
-
