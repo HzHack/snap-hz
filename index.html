@@ -32,6 +32,20 @@
       color: var(--heading-color);
     }
 
+    .visitor-badge {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #ffcc00;
+      color: black;
+      padding: 8px 14px;
+      border-radius: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      font-weight: bold;
+      z-index: 999;
+      font-size: 14px;
+    }
+
     .container {
       max-width: 800px;
       margin: auto;
@@ -169,11 +183,15 @@
     }
   </style>
 </head>
-<body>
+<body class="dark">
+  <!-- عداد الزوار الحقيقي -->
+  <div class="visitor-badge">👁️ عدد الزوار: <span id="visitor-count">...</span></div>
+
   <div class="container">
     <div class="app-card">
       <img src="https://g.top4top.io/p_347257lh10.png" alt="شعار التطبيق" class="logo" />
       <h1>سناب 0x - النسخة المعدلة من سناب شات</h1>
+
       <div class="description">
         <p>سناب 0x هو نسخة معدلة من تطبيق سناب شات توفر ميزات إضافية مثل حفظ الصور ومقاطع الفيديو، وتجاوز حظر IP، وتغيير الموقع، وميزات الخصوصية، وغيرها الكثير.</p>
 
@@ -217,19 +235,19 @@
 
       <div class="btns">
         <a href="https://h.top4top.io/p_3471q4bpq1.jpg" class="install-btn" target="_blank">تثبيت التطبيق</a>
-        <button class="buy-btn" onclick="togglePayment()">شراء الكود</button>
+        <button class="buy-btn" onclick="togglePayment()">قريباً</button>
       </div>
 
       <div class="payment-info" id="paymentBox">
         <strong>بيانات التحويل البنكي:</strong><br>
         <b>صابر بهكلي</b><br><br>
         <b>بنك الخليج الدولي:</b><br>
-        <span id="acc1">SA0290000000029900774761</span>
+        <span id="acc1">SA*29********29900774761</span>
         <button class="copy-btn" onclick="copyText('acc1')">نسخ</button><br><br>
         <b>بنك الراجحي:</b><br>
-        <span id="acc2">SA4280000157608016004963</span>
+        <span id="acc2">SA*28****157608016004963</span>
         <button class="copy-btn" onclick="copyText('acc2')">نسخ</button><br><br>
-        <a href="https://wa.me/966583647497" target="_blank" style="color:#007aff; font-weight:bold;">تواصل واتساب</a>
+        <a href="https://wa.me/966000000000" target="_blank" style="color:#007aff; font-weight:bold;">تواصل واتساب</a>
       </div>
     </div>
 
@@ -242,7 +260,7 @@
     </footer>
   </div>
 
-  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  <button class="theme-toggle" onclick="toggleTheme()">☀️</button>
 
   <script>
     function toggleTheme() {
@@ -260,6 +278,29 @@
       const text = document.getElementById(id).innerText;
       navigator.clipboard.writeText(text);
       alert("تم نسخ رقم الحساب");
+    }
+
+    // عداد زوار حقيقي يبدأ من 367
+    const namespace = "snap0x_counter";
+    const key = "visits";
+
+    fetch(`https://api.countapi.xyz/get/${snap_0X_team}/${key}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.value === undefined) {
+          fetch(`https://api.countapi.xyz/set/${namespace}/${key}?value=367`)
+            .then(() => hitCounter());
+        } else {
+          hitCounter();
+        }
+      });
+
+    function hitCounter() {
+      fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("visitor-count").textContent = data.value;
+        });
     }
   </script>
 </body>
